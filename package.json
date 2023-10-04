@@ -1,6 +1,6 @@
 {
-  "name": "cli-game",
-  "version": "1.0.0",
+  "name": "cli-game-quiz",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bin": {
+    "cli-game": "index.js"
+  },
   "dependencies": {
     "@clack/prompts": "^0.7.0",
     "figlet": "^1.6.0",

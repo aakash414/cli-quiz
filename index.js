@@ -9,6 +9,20 @@ import color from "picocolors";
 
 let totalCorrect = 0;
 
+async function displayGreeting() {
+  return new Promise((resolve, reject) => {
+    figlet(`A Quiz from Aakash414`, (err, data) => {
+      if (err) {
+        reject(err);
+      } else {
+        console.clear();
+        console.log(gradient.pastel.multiline(data) + "\n");
+        resolve();
+      }
+    });
+  });
+}
+
 async function askQuestion(question, answers, correctAnswerIndex) {
   const options = [];
   answers.forEach((answer) => {
@@ -41,16 +55,15 @@ class Question {
 
 async function main() {
   console.clear();
+  try {
+    await displayGreeting();
+
+    // Rest of your code here
+  } catch (error) {
+    console.error(error);
+  }
 
   await setTimeout(1000);
-
-  p.intro(
-    `${color.bgMagenta(
-      color.black(
-        " Welcome. Let us find out how much of a CLI expert you REALLY are. "
-      )
-    )}`
-  );
 
   const question1 = new Question(
     "1) What is Git primarily used for?",
@@ -199,14 +212,9 @@ async function main() {
       s.stop();
 
       console.clear();
-      figlet(`Congrats ,  !\n $ 1 , 0 0 0 , 0 0 0`, (err, data) => {
+      figlet(`Congrats ,  !\n 1.005 eth`, (err, data) => {
         console.log(gradient.pastel.multiline(data) + "\n");
 
-        console.log(
-          chalk.green(
-            `Programming isn't about what you know; it's about making the command line look cool`
-          )
-        );
         process.exit(0);
       });
     } else {
