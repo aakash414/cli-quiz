@@ -2,6 +2,9 @@
 
 import * as p from "@clack/prompts";
 import { setTimeout } from "node:timers/promises";
+import chalk from "chalk";
+import gradient from "gradient-string";
+import figlet from "figlet";
 import color from "picocolors";
 
 let totalCorrect = 0;
@@ -194,11 +197,18 @@ async function main() {
       s.start("Generating secret message");
       await setTimeout(5000);
       s.stop();
-      p.outro(
-        `${color.bgMagenta(
-          color.black(`The command line is a tool that is ripe for change. `)
-        )}`
-      );
+
+      console.clear();
+      figlet(`Congrats ,  !\n $ 1 , 0 0 0 , 0 0 0`, (err, data) => {
+        console.log(gradient.pastel.multiline(data) + "\n");
+
+        console.log(
+          chalk.green(
+            `Programming isn't about what you know; it's about making the command line look cool`
+          )
+        );
+        process.exit(0);
+      });
     } else {
       const s = p.spinner();
       s.start();
